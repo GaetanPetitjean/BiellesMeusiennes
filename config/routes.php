@@ -54,6 +54,25 @@ Router::scope('/', function ($routes) {
      */
     $routes->connect('/pages/*', ['controller' => 'Pages', 'action' => 'display']);
 
+    /*
+    * Routes amenant a l'inscription à un évènement d'un nouvel utilisateur
+    */
+    $routes->connect('/evenement/:slug.:id',
+      [
+        'controller' => 'Events',
+        'action' => 'inscription'
+      ],
+      [
+        '_name' => 'form-inscription',
+        'pass' => [
+          'id',
+          'slug'
+        ],
+        'id' => '[0-9]+'
+      ]
+    );
+
+
     /**
      * Connect catchall routes for all controllers.
      *
@@ -73,6 +92,11 @@ Router::scope('/', function ($routes) {
     $routes->fallbacks('DashedRoute');
 });
 
+Router::prefix('Admin', function ($routes) {
+
+  $routes->connect('/', ['controller' => 'Pages', 'action' => 'dashboard', 'prefix' => 'admin'], ['_name' => 'Dashboard']);
+  $routes->fallbacks('DashedRoute');
+});
 /**
  * Load all plugin routes.  See the Plugin documentation on
  * how to customize the loading of plugin routes.

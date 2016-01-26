@@ -1,0 +1,50 @@
+2016-01-26 14:24:45 Notice: Notice (8): Undefined variable: id in [E:\Dev\BiellesMeusiennes\src\Controller\EventsController.php, line 15]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 140
+App\Controller\EventsController::inscription() - APP/Controller\EventsController.php, line 15
+Cake\Controller\Controller::invokeAction() - CORE\src\Controller\Controller.php, line 429
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 114
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2016-01-26 14:38:39 Notice: Strict (2048): Declaration of App\Controller\Admin\AppController::beforeRender() should be compatible with Cake\Controller\Controller::beforeRender(Cake\Event\Event $event) in [E:\Dev\BiellesMeusiennes\src\Controller\Admin\AppController.php, line 11]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 140
+include - APP/Controller\Admin\AppController.php, line 11
+Composer\Autoload\includeFile - ROOT\vendor\composer\ClassLoader.php, line 412
+Composer\Autoload\ClassLoader::loadClass() - ROOT\vendor\composer\ClassLoader.php, line 301
+spl_autoload_call - [internal], line ??
+include - APP/Controller\Admin\EventsController.php, line 11
+Composer\Autoload\includeFile - ROOT\vendor\composer\ClassLoader.php, line 412
+Composer\Autoload\ClassLoader::loadClass() - ROOT\vendor\composer\ClassLoader.php, line 301
+spl_autoload_call - [internal], line ??
+class_exists - [internal], line ??
+Cake\Core\App::_classExistsInBase() - CORE\src\Core\App.php, line 87
+Cake\Core\App::className() - CORE\src\Core\App.php, line 64
+Cake\Routing\Filter\ControllerFactoryFilter::_getController() - CORE\src\Routing\Filter\ControllerFactoryFilter.php, line 82
+Cake\Routing\Filter\ControllerFactoryFilter::beforeDispatch() - CORE\src\Routing\Filter\ControllerFactoryFilter.php, line 50
+Cake\Routing\DispatcherFilter::handle() - CORE\src\Routing\DispatcherFilter.php, line 145
+Cake\Event\EventManager::_callListener() - CORE\src\Event\EventManager.php, line 389
+Cake\Event\EventManager::dispatch() - CORE\src\Event\EventManager.php, line 355
+Cake\Routing\Dispatcher::dispatchEvent() - CORE\src\Event\EventDispatcherTrait.php, line 78
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 62
+[main] - ROOT\webroot\index.php, line 37
+
+
+
+2016-01-26 14:40:46 Notice: Notice (8): Undefined variable: events in [E:\Dev\BiellesMeusiennes\src\Template\Admin\Events\index.ctp, line 24]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE\src\Error\BaseErrorHandler.php, line 140
+include - APP/Template\Admin\Events\index.ctp, line 24
+Cake\View\View::_evaluate() - CORE\src\View\View.php, line 992
+Cake\View\View::_render() - CORE\src\View\View.php, line 952
+Cake\View\View::render() - CORE\src\View\View.php, line 587
+Cake\Controller\Controller::render() - CORE\src\Controller\Controller.php, line 611
+Cake\Routing\Dispatcher::_invoke() - CORE\src\Routing\Dispatcher.php, line 120
+Cake\Routing\Dispatcher::dispatch() - CORE\src\Routing\Dispatcher.php, line 87
+[main] - ROOT\webroot\index.php, line 37
+
+
+

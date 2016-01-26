@@ -10,3 +10,21 @@ Stack Trace:
 #4 {main}
 
 
+2016-01-26 14:53:46 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'bielles.pages' doesn't exist
+Stack Trace:
+#0 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(96): Cake\Database\Schema\Collection->_reflect('Column', 'pages', Array, Object(Cake\Database\Schema\Table))
+#1 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(64): Cake\Database\Schema\Collection->describe('pages', Array)
+#2 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\ORM\Table.php(423): Cake\Database\Schema\CachedCollection->describe('pages')
+#3 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\ORM\Table.php(499): Cake\ORM\Table->schema()
+#4 E:\Dev\BiellesMeusiennes\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(282): Cake\ORM\Table->primaryKey()
+#5 E:\Dev\BiellesMeusiennes\vendor\cakephp\bake\src\Shell\Task\TemplateTask.php(147): Bake\Shell\Task\TemplateTask->_loadController()
+#6 [internal function]: Bake\Shell\Task\TemplateTask->main('Pages')
+#7 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\Console\Shell.php(455): call_user_func_array(Array, Array)
+#8 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\Console\Shell.php(449): Cake\Console\Shell->runCommand(Array, false)
+#9 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(212): Cake\Console\Shell->runCommand(Array, true, Array)
+#10 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(179): Cake\Console\ShellDispatcher->_dispatch(Array)
+#11 E:\Dev\BiellesMeusiennes\vendor\cakephp\cakephp\src\Console\ShellDispatcher.php(126): Cake\Console\ShellDispatcher->dispatch(Array)
+#12 E:\Dev\BiellesMeusiennes\bin\cake.php(33): Cake\Console\ShellDispatcher::run(Array)
+#13 {main}
+
+
