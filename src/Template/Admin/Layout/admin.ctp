@@ -9,9 +9,9 @@
       <?= $this->Html->meta('icon') ?>
       <?= $this->fetch('meta') ?>
       <?= $this->Html->css([
-        'admin',
         'bootstrap.min',
-        'font-awesome.min'
+        'font-awesome.min',
+        'admin'
         ]); ?>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
