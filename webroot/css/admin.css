@@ -2,7 +2,7 @@
 
 body {
     margin-top: 100px;
-    background-color: #222;
+    background-color: #fff;
 }
 
 @media(min-width:768px) {
@@ -111,7 +111,6 @@ ul.alert-dropdown {
         position: fixed;
         top: 51px;
         width: 225px;
-        margin-left: -225px;
         border: none;
         border-radius: 0;
         overflow-y: auto;
