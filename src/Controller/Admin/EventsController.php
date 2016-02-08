@@ -2,13 +2,51 @@
 namespace App\Controller\Admin;
 
 use App\Controller\Admin\AppController;
-
+use Cake\I18n\Time;
+use Cake\Network\Exception\InternalErrorException;
 /**
  * Events Controller
  *
  * @property \App\Model\Table\EventsTable $Events */
 class EventsController extends AppController
 {
+
+    /**
+     * Index method
+     *
+     * @return void
+     */
+    public function validation()
+    {
+        $this->loadModel('EventsOwners');
+        $data = [
+            'owner_id' => $this->request->params['owner'],
+            'event_id' => $this->request->params['event'],
+            'vehicle_id' => $this->request->params['vehicle'],
+            'id' => $this->request->params['id']
+        ];
+        $inscription = $this->EventsOwners->find()
+            ->where([
+                'owner_id' => $data['owner_id'],
+                'event_id' => $data['event_id'],
+                'vehicle_id' => $data['vehicle_id'],
+                'id '=> $data['id'],
+            ])
+            ->first();
+
+        $inscription = $this->EventsOwners->patchEntity($inscription, $data);
+        if ( $inscription->is_valid ) {
+            $inscription->is_valid = false;
+        } else {
+            $inscription->is_valid = true;
+        }
+        if ($this->EventsOwners->save($inscription)) {
+            $this->Flash->success(__('The event has been saved.'));
+            return $this->redirect($this->referer());
+        } else {
+            $this->Flash->error(__('Une erreur est survenue lors du changement de status de l\'inscription'));
+        }
+    }
 
     /**
      * Index method
@@ -33,7 +71,28 @@ class EventsController extends AppController
         $event = $this->Events->get($id, [
             'contain' => ['Owners']
         ]);
-        $this->set('event', $event);
+        $this->loadModel('EventsOwners');
+        $list = $this->EventsOwners->find()
+            ->where(['event_id' => $event->id])
+            ->contain(['Owners', 'Vehicles', 'Events']);
+        $valids = [];
+        $waiting = [];
+        $refused = [];
+        /*debug($list->toArray());
+        die();*/
+        foreach ( $list as $owners ) {
+            if (!$owners->vehicle->is_banned) {
+                if (!$owners->is_valid) {
+                    $waiting[] = $owners;
+                }
+                if ($owners->is_valid) {
+                    $valids[] = $owners;
+                }
+            } else {
+                $refused[] = $owners;
+            }
+        }
+        $this->set(compact(['event', 'valids', 'waiting', 'refused', 'list']));
         $this->set('_serialize', ['event']);
     }
 
@@ -46,6 +105,8 @@ class EventsController extends AppController
     {
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
+            $this->request->data['start'] = new Time($this->request->data['start']);
+            $this->request->data['end'] = new Time($this->request->data['end']);
             $event = $this->Events->patchEntity($event, $this->request->data);
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));

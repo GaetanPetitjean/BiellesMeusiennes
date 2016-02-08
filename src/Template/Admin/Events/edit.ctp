@@ -1,29 +1,52 @@
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $event->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $event->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Events'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Owners'), ['controller' => 'Owners', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Owner'), ['controller' => 'Owners', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="events form large-9 medium-8 columns content">
-    <?= $this->Form->create($event) ?>
-    <fieldset>
-        <legend><?= __('Edit Event') ?></legend>
-        <?php
-            echo $this->Form->input('name');
-            echo $this->Form->input('lieu');
-            echo $this->Form->input('start');
-            echo $this->Form->input('end');
-            echo $this->Form->input('owners._ids', ['options' => $owners]);
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
-</div>
+<section class="content-header">
+    <h1>Créer un nouvel évènement</h1>
+</section>
+<section class="content">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-info">
+                <div class="box-header with-border">
+
+                </div>
+                <div class="box-body">
+                    <?= $this->Form->create($event, ['enctype' => 'multipart/form-data']) ?>
+                    <div class="form-group">
+                      <?= $this->Form->input('name', ['class' => 'form-control']);?>
+                    </div>
+                    <div class="form-group">
+                      <?= $this->Form->input('lieu', ['class' => 'form-control']);?>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              <?= $this->Form->input('start', ['class' => 'form-control', 'data-inputmask'=> "'alias': 'dd/mm/yyyy'", 'data-mask' => '', 'type' => 'text', 'label' => false]);?>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="input-group">
+                              <div class="input-group-addon">
+                                <i class="fa fa-calendar"></i>
+                              </div>
+                              <?= $this->Form->input('end', ['class' => 'form-control', 'data-inputmask'=> "'alias': 'dd/mm/yyyy'", 'data-mask' => '', 'type' => 'text', 'label' => false]);?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                      <?= $this->Form->input('content', ['class' => 'form-control']);?>
+                    </div>
+                    <div class="form-group">
+                      <?= $this->Form->input('thumb_file', ['type' => 'file']) ?>
+                    </div>
+                    <div class="box-footer">
+                        <?= $this->Form->button(__('Enregistrer'),['class' => 'btn btn-info btn-block']) ?>
+                    </div>
+                    <?= $this->Form->end() ?>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

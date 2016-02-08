@@ -25,5 +25,15 @@ class EventsTable extends Table
       $this->belongsToMany('Owners', [
           'through' => 'EventsOwners',
       ]);
+      $this->addBehavior('Xety/Cake3Upload.Upload', [
+        'fields' => [
+            'thumb' => [
+                'path' => 'upload/events/:id/:md5',
+                'prefix' => '/',
+                'defaultFile' => '/upload/events/default.jpg'
+            ]
+        ]
+    ]
+);
     }
 }

@@ -95,6 +95,22 @@ Router::scope('/', function ($routes) {
 Router::prefix('Admin', function ($routes) {
 
   $routes->connect('/', ['controller' => 'Pages', 'action' => 'dashboard', 'prefix' => 'admin'], ['_name' => 'Dashboard']);
+  $routes->connect('/evenement/validation/:owner.:event.:vehicle.:id',
+    [
+      'controller' => 'Events',
+      'action' => 'validation'
+    ],
+    [
+      '_name' => 'event-validation',
+      'pass' => [
+        'owner',
+        'event',
+        'vehicle',
+        'id'
+      ],
+      '*' => '[0-9]+'
+    ]
+  );
   $routes->fallbacks('DashedRoute');
 });
 /**

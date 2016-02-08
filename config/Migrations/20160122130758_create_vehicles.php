@@ -36,7 +36,7 @@ class CreateVehicles extends AbstractMigration
         ->addColumn('date_circu', 'datetime')
         ->addColumn('imat', 'string', ['limit' => 50])
         ->addColumn('infos', 'text')
-        ->addColumn('is_valid', 'boolean')
+        ->addColumn('is_banned', 'boolean')
         ->addColumn('created', 'datetime')
         ->addIndex(array('imat'), array('unique' => true))
         ->create();

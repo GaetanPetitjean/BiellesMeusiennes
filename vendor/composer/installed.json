@@ -1291,5 +1291,59 @@
         "keywords": [
             "framework"
         ]
+    },
+    {
+        "name": "xety/cake3-upload",
+        "version": "v1.2",
+        "version_normalized": "1.2.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/Xety/Cake3-Upload.git",
+            "reference": "47b7c9728ee907dbb4d9659939364fffce2e02f5"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/Xety/Cake3-Upload/zipball/47b7c9728ee907dbb4d9659939364fffce2e02f5",
+            "reference": "47b7c9728ee907dbb4d9659939364fffce2e02f5",
+            "shasum": ""
+        },
+        "require": {
+            "cakephp/orm": "3.*",
+            "php": ">=5.4.16"
+        },
+        "require-dev": {
+            "cakephp/cakephp": "~3.0",
+            "cakephp/cakephp-codesniffer": "dev-master",
+            "phpunit/phpunit": "*"
+        },
+        "time": "2016-01-21 10:19:44",
+        "type": "cakephp-plugin",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Xety\\Cake3Upload\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Xety",
+                "email": "zoro.fmt@gmail.com",
+                "homepage": "https://github.com/Xety"
+            }
+        ],
+        "description": "Cake3 plugin to upload files.",
+        "homepage": "https://github.com/Xety/Cake3-Upload",
+        "keywords": [
+            "cake3",
+            "cakephp",
+            "file",
+            "orm",
+            "plugin",
+            "upload"
+        ]
     }
 ]

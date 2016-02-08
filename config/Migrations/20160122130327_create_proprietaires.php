@@ -40,6 +40,7 @@ class CreateProprietaires extends AbstractMigration
         ->addColumn('cp', 'integer')
         ->addColumn('cedex', 'string', ['limit' => 50])
         ->addColumn('country', 'string', ['limit' => 50])
+        ->addColumn('is_banned', 'boolean')
         ->addColumn('created', 'datetime')
         ->addColumn('modified', 'datetime')
         ->addIndex(array('email'), array('unique' => true))
